@@ -34,15 +34,25 @@ public class FindMissingClassTests : FindMissingClass
     }
 
     [TestMethod]
-    [ExpectedException(typeof(ArgumentNullException))]
     public void FindMissingTest4()
+    {
+        IEnumerable<int> actual = FindMissing(new List<int> { 1, 2 });
+
+        IEnumerable<int> expected = new List<int> {};
+
+        Assert.IsTrue(Enumerable.SequenceEqual(actual, expected));
+    }
+
+    [TestMethod]
+    [ExpectedException(typeof(ArgumentNullException))]
+    public void FindMissingTest5()
     {
         IEnumerable<int> actual = FindMissing(null);
     }
 
     [TestMethod]
     [ExpectedException(typeof(ArgumentNullException))]
-    public void FindMissingTest5()
+    public void FindMissingTest6()
     {
         IEnumerable<int> actual = FindMissing(new List<int>{});
     }
